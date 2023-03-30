@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\department;
 
 class doctor extends Model
 {
@@ -16,7 +17,7 @@ class doctor extends Model
         'phone',
         'fee',
     ];
-    // public function appointment(){
-    //     return $this->hasOne(appointment::class);
-    // }
+    public function department(){
+        return $this->belongsTo(department::class);
+    }
 }

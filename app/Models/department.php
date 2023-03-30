@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\doctor;
 
 class department extends Model
 {
@@ -13,4 +14,8 @@ class department extends Model
     protected $fillable=[
         'name',
     ];
+
+    public function doctor(){
+        return $this->hasMany(doctor::class,'department_id','id');
+    }
 }

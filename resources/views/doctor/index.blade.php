@@ -17,7 +17,7 @@
                         <tbody>
                             <tr>
                                 <th>SN</th>
-                                <th>App.No</th>
+                                <th>Department Name</th>
                                 <th>Doctor</th>
                                 <th>phone</th>
                                 <th>Fee</th>
@@ -26,8 +26,8 @@
                             @foreach ($doctor as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->department_id }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->department->name }}</td>
+                                    <td>{{ $item->name}}</td>
                                     <td>{{ $item->phone }}</td>
                                     <td>{{ $item->fee }}</td>
                                     <td>
@@ -65,9 +65,12 @@
                     <div class="modal-body">
 
                         <div class="mb-2">
-                            <label for="number" class="form-label"><b>Department Id</b></label>
-                            <input type="number" class="form-control" id="department_id" placeholder="Department Id"
-                                name="department_id">
+                            <label for="number" class="form-label"><b>Department Name</b></label>
+                            <select name="department_id" id="" class="form-select" >
+                                @foreach ($dep as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-2">
                             <label for="name" class="form-label"><b>Name</b></label>

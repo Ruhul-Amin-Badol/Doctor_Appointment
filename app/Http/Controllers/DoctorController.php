@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\doctor;
+use App\Models\department;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -14,8 +15,9 @@ class DoctorController extends Controller
      */
     public function index()
     {   
-        $doctors=doctor::all();
-        return view('doctor.index',['doctor'=>$doctors]);
+        $doctors=doctor::with('department')->get();
+        $department=department::with('doctor')->get();
+        return view('doctor.index',['doctor'=>$doctors,'dep'=>$department]);
     }
 
     /**
