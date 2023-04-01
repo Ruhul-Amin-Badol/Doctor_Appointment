@@ -38,12 +38,13 @@
                                     </td>
                                 </tr>
                             @endforeach
+                           
                         </tbody>
                     </table>
 
                 </div>
-                <div>
-                    <p>pagination basate hobe</p>
+                <div class="row">
+                    {{$doctor->links()}}                 
                 </div>
             </div>
             <div class="col-2"></div>
@@ -66,7 +67,8 @@
 
                         <div class="mb-2">
                             <label for="number" class="form-label"><b>Department Name</b></label>
-                            <select name="department_id" id="" class="form-select" >
+                            <select name="department_id" id="department_id" class="form-select" >
+                                <option >--select department--</option>
                                 @foreach ($dep as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
@@ -95,4 +97,5 @@
             </div>
         </div>
     </form>
+    
 @endsection

@@ -15,9 +15,13 @@ class DoctorController extends Controller
      */
     public function index()
     {   
-        $doctors=doctor::with('department')->get();
+        $doctors=doctor::with('department')->paginate(4);
         $department=department::with('doctor')->get();
         return view('doctor.index',['doctor'=>$doctors,'dep'=>$department]);
+    }
+    public function loaddr($id)
+    {   
+        return $doctors = doctor::where('department_id',$id)->get();
     }
 
     /**

@@ -31,3 +31,4 @@ Route::post('doctor/', [DoctorController::class,'create']);
 Route::get('/edit/{id}', [DoctorController::class,'edit']);
 Route::patch('/edit/{id}', [DoctorController::class,'update']);
 Route::get('/doctor/{id}', [DoctorController::class,'destroy']);
+Route::get('/loaddr/{id}', [DoctorController::class,'loaddr']);
